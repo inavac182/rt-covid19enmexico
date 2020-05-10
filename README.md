@@ -1,6 +1,7 @@
-# corona-virus-mapa
+# RT Covid19 en México
 
-Mapa del corona virus en mexico
+Taza de reproduccioón del COVID-19 en México.
+Ver aqui [rt covid19](http://rt.covid19enmexico.com/)
 
 # Run
 

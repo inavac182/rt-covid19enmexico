@@ -1,36 +1,5 @@
 .dashboard {
   height: 100%;
-
-  .header {
-    width: 100%;
-    min-height: 50px;
-    padding-top: 10px;
-    background-color: @mediumBlueGray;
-    h1 {
-      margin-left: 10px;
-    }
-    .infoButton {
-      margin-right: 10px;
-    }
-  }
-
-  .main {
-    margin: 10px;
-    min-height: 500px;
-
-    .colA {
-      display: none;
-    }
-  }
-
-  .footer {
-    min-height: 100px;
-    background-color: @mediumBlueGray;
-  }
-}
-
-.chart-box {
-  height: 300px;
 }
 
 .left {
@@ -99,60 +68,23 @@
   width: fit-content;
 }
 
-.bullet-point-one {
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-}
-
-.bullet-point-two {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-}
-
-.bullet-point-three {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-}
-
-.bullet-point-four {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-}
-
-.bullet-point-five {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-}
-
-.bullet-point-big {
-  width: 100px;
-  height: 100px;
-  border-radius: 60px;
-}
-
 .hide-mobile {
   display: none;
 }
 
+.clearer {
+  clear: both;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.center-content {
+  text-align: center;
+}
+
 @media all and (min-width: 900px) {
-  .dashboard .main {
-    .colA {
-      display: block;
-      width: 35%;
-      float: left;
-    }
-
-    .colB {
-      min-width: 60%;
-      float: right;
-    }
-  }
-
   .only-mobile-breakpoint {
     display: none;
   }
