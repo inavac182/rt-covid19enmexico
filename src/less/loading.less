@@ -1,0 +1,170 @@
+.loading-skeleton {
+  .summary {
+    .fluorescent-yellow-bg {
+      background-color: @fluorescentYellow;
+      animation-name: confirmedAnimation;
+    }
+
+    .yellow-bg {
+      background-color: @yellow;
+      animation-name: yellowAnimation;
+    }
+
+    .red-bg {
+      background-color: @red;
+      animation-name: deathsAnimation;
+    }
+
+    .green-bg {
+      background-color: @green;
+      animation-name: recoveredAnimation;
+    }
+
+    .aqua-bg {
+      background-color: @aqua;
+      animation-name: possibleAnimation;
+    }
+
+    .gray-bg {
+      background-color: @lightDarkGray;
+      animation-name: negativesAnimation;
+    }
+
+    .white-bg {
+      background-color: @white;
+      animation-name: totalTestAnimation;
+    }
+  }
+
+  .states-list li {
+    background-color: @mediumBlueGray;
+    height: 40px;
+    animation-name: listAnimated;
+  }
+
+  .map {
+    height: 600px;
+  }
+
+  .graph {
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  .statsChart {
+    height: 500px;
+  }
+
+  .chartBox {
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+}
+
+@media all and (min-width: 900px) {
+  .loading-skeleton .colB .map,
+  .loading-skeleton .colB .graph {
+    margin-left: 1px;
+  }
+
+  .loading-skeleton .chartBox {
+    width: 32%;
+  }
+}
+
+.animatedBox {
+  width: 95%;
+  padding-top: 20px;
+  border-radius: 10px;
+  background-color: @mediumBlueGray;
+  animation-name: boxAnimated;
+}
+
+.animation {
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes totalTestAnimation {
+  to {
+    background-color: @lightDarkGray;
+  }
+  from {
+    background-color: #ffffff;
+  }
+}
+
+@keyframes yellowAnimation {
+  to {
+    background-color: #53540d;
+  }
+  from {
+    background-color: @yellow;
+  }
+}
+
+@keyframes boxAnimated {
+  to {
+    background-color: #3f4653;
+  }
+  from {
+    background-color: @mediumBlueGray;
+  }
+}
+
+@keyframes listAnimated {
+  to {
+    background-color: #2c313a;
+  }
+  from {
+    background-color: @lightBlack;
+  }
+}
+
+@keyframes confirmedAnimation {
+  to {
+    background-color: #828c29;
+  }
+  from {
+    background-color: @fluorescentYellow;
+  }
+}
+
+@keyframes deathsAnimation {
+  to {
+    background-color: #862d34;
+  }
+  from {
+    background-color: #e06c75;
+  }
+}
+
+@keyframes recoveredAnimation {
+  to {
+    background-color: #456e28;
+  }
+  from {
+    background-color: #98c379;
+  }
+}
+
+@keyframes possibleAnimation {
+  to {
+    background-color: #2b6a72;
+  }
+  from {
+    background-color: #56b6c2;
+  }
+}
+
+@keyframes negativesAnimation {
+  to {
+    background-color: #3c3f44;
+  }
+  from {
+    background-color: #5c6370;
+  }
+}

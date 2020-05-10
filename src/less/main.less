@@ -1,0 +1,57 @@
+@import url('./colors.less');
+@import url('./fonts.less');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+html,
+body,
+#main {
+  height: 100%;
+}
+
+html {
+  background-color: @darkBlue;
+  color: @lightGray;
+}
+
+.clearer {
+  clear: both;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.center-content {
+  text-align: center;
+}
+
+body .dashboard.modal-true {
+  overflow: hidden;
+}
+
+.textWrapped {
+  word-break: break-word;
+}
+
+@import url('./grid.less');
+@import url('./stats.less');
+@import url('./header.less');
+@import url('./footer.less');
+@import url('./form.less');
+@import url('./button.less');
+@import url('./graphs.less');
+@import url('./summary.less');
+@import url('./blog.less');
+@import url('./modal.less');
+@import url('./indicators.less');
+@import url('./loading.less');
+@import url('./alerts.less');
+@import url('./margins.less');

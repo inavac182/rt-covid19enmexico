@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage renders correctly 1`] = `
+<div
+  class="page"
+>
+  <h1>
+    Cova trader
+  </h1>
+  <div
+    class="books"
+  >
+    <p>
+      Loading books....
+    </p>
+  </div>
+</div>
+`;

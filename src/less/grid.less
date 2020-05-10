@@ -1,0 +1,172 @@
+.dashboard {
+  height: 100%;
+
+  .header {
+    width: 100%;
+    min-height: 50px;
+    padding-top: 10px;
+    background-color: @mediumBlueGray;
+    h1 {
+      margin-left: 10px;
+    }
+    .infoButton {
+      margin-right: 10px;
+    }
+  }
+
+  .main {
+    margin: 10px;
+    min-height: 500px;
+
+    .colA {
+      display: none;
+    }
+  }
+
+  .footer {
+    min-height: 100px;
+    background-color: @mediumBlueGray;
+  }
+}
+
+.chart-box {
+  height: 300px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.grid {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  &.column-on-mobile {
+    flex-direction: column;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  .col {
+    flex-grow: 1;
+    flex-basis: 20%;
+    width: 100%;
+    margin-top: 10px;
+    align-self: flex-start;
+
+    &.two-spaces {
+      flex-grow: 2;
+    }
+  }
+}
+
+.separator {
+  width: 100%;
+  height: 3px;
+  background-color: @aqua;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  &.soft {
+    opacity: 0.4;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+
+  .half {
+    width: 50%;
+    float: left;
+  }
+}
+
+.padding-one {
+  padding: 10px;
+}
+
+.auto-width {
+  width: fit-content;
+}
+
+.bullet-point-one {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.bullet-point-two {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.bullet-point-three {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.bullet-point-four {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.bullet-point-five {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.bullet-point-big {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media all and (min-width: 900px) {
+  .dashboard .main {
+    .colA {
+      display: block;
+      width: 35%;
+      float: left;
+    }
+
+    .colB {
+      min-width: 60%;
+      float: right;
+    }
+  }
+
+  .only-mobile-breakpoint {
+    display: none;
+  }
+
+  .col.border-in-right {
+    padding-right: 10px;
+    border-right: 3px solid @aqua;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
+
+  .grid.column-on-mobile {
+    flex-direction: row;
+  }
+}
