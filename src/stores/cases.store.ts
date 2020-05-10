@@ -2,9 +2,7 @@ import { observable, computed, action, remove } from 'mobx';
 import { StoreDefaults } from '../utils/storeDefaults';
 import { Store } from '../utils/store';
 import { firestore } from '../utils/base';
-import { CaseState, Summary, ReproductionRateConstantsTypes } from 'src/types';
-
-const docInUse = 'mexico';
+import { CaseState } from 'src/types';
 
 export class CasesStore extends Store {
   @observable public states: [CaseState];
