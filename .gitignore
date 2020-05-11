@@ -106,5 +106,3 @@ dist
 #firebase
 .firebaserc
 .firebase
-coverage/
-dist/
