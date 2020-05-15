@@ -1,5 +1,6 @@
 export interface ArchivedStateData {
   state: string;
+  id: string;
   displayName?: string;
   confirmed: number;
   recovered: number;
