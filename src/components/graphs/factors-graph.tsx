@@ -9,7 +9,7 @@ interface FactorsGraphProps {
 export const FactorsGraph = (props: FactorsGraphProps) => {
   const { factors } = props;
   const graphData = [];
-  const lastFactors = factors.slice(Math.max(factors.length - 10, 0));
+  const lastFactors = factors.slice(Math.max(factors.length - 15, 0));
 
   graphData.push(['Día', '', { role: 'interval' }, { role: 'interval' }, { role: 'style' }]);
 

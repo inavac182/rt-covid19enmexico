@@ -179,11 +179,13 @@ export class CasesStore extends Store {
       let casesToRemove = 0;
       let activeCasesForTheDay = 0;
       let previousInfectedCases = 0;
+      let newInFactor = 0;
 
       if (index === 0) {
         inFactor = dayData.confirmed;
         newCasesForTheDay = dayData.confirmed;
         activeCasesForTheDay = dayData.confirmed;
+        newInFactor = dayData.confirmed;
       } else {
         newCasesForTheDay = dayData.confirmed - data[index - 1].confirmed;
         previousInfectedCases = activeCases[index - 1];
@@ -192,8 +194,24 @@ export class CasesStore extends Store {
           casesToRemove = newCases[index - this.daysToRemoveConfirmed];
         }
 
+        const numberOfDaysBackForYesterday = newCases.length > 7 ? 7 : newCases.length;
+        const numberOfDaysBackForToday = newCases.length > 6 ? 6 : newCases.length;
+        let weekCasesForYesterday = 0;
+        let weekCasesForToday = 0;
+
+        for (let i = 1; i <= numberOfDaysBackForYesterday; i++) {
+          weekCasesForYesterday += newCases[index - i];
+        }
+
+        for (let i = 1; i <= numberOfDaysBackForToday; i++) {
+          weekCasesForToday += newCases[index - i];
+        }
+
+        weekCasesForToday += newCasesForTheDay;
+
         activeCasesForTheDay = previousInfectedCases + newCasesForTheDay - casesToRemove;
         inFactor = previousInfectedCases ? activeCasesForTheDay / previousInfectedCases : 0;
+        newInFactor = weekCasesForToday / weekCasesForYesterday;
       }
 
       newCases.push(newCasesForTheDay);
@@ -203,9 +221,9 @@ export class CasesStore extends Store {
       const cleanedDate = dayData.date.replace('cases-', '');
       const date = new Date(cleanedDate);
       const locDate = dateTimeFormat.formatToParts(date);
-      const factor = parseFloat(inFactor.toFixed(2));
-      const highFactor = parseFloat((inFactor + this.factorInterval).toFixed(2));
-      const lowFactor = parseFloat((inFactor - this.factorInterval).toFixed(2));
+      const factor = parseFloat(newInFactor.toFixed(2));
+      const highFactor = parseFloat((newInFactor + this.factorInterval).toFixed(2));
+      const lowFactor = parseFloat((newInFactor - this.factorInterval).toFixed(2));
 
       factors.push({
         date: `${locDate[0].value} ${locDate[2].value}`,
