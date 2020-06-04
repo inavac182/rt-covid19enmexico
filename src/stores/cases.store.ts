@@ -13,6 +13,7 @@ export class CasesStore extends Store {
   @observable public nationalR0: Factors[];
   @observable public currentFactors: StateCurrentR0[];
   @observable public loading: boolean;
+  private averageDaysForRT: number;
 
   private daysToRemoveConfirmed: number;
   private factorInterval: number;
@@ -194,8 +195,10 @@ export class CasesStore extends Store {
           casesToRemove = newCases[index - this.daysToRemoveConfirmed];
         }
 
-        const numberOfDaysBackForYesterday = newCases.length > 7 ? 7 : newCases.length;
-        const numberOfDaysBackForToday = newCases.length > 6 ? 6 : newCases.length;
+        const numberOfDaysBackForYesterday =
+          newCases.length >= this.averageDaysForRT ? this.averageDaysForRT : newCases.length;
+        const numberOfDaysBackForToday =
+          newCases.length >= this.averageDaysForRT ? this.averageDaysForRT - 1 : newCases.length;
         let weekCasesForYesterday = 0;
         let weekCasesForToday = 0;
 
@@ -209,9 +212,12 @@ export class CasesStore extends Store {
 
         weekCasesForToday += newCasesForTheDay;
 
+        const weekAverageCasesToday = weekCasesForToday / numberOfDaysBackForToday;
+        const weekAverageCasesYesterday = weekCasesForYesterday / numberOfDaysBackForYesterday;
+
         activeCasesForTheDay = previousInfectedCases + newCasesForTheDay - casesToRemove;
         inFactor = previousInfectedCases ? activeCasesForTheDay / previousInfectedCases : 0;
-        newInFactor = weekCasesForToday / weekCasesForYesterday;
+        newInFactor = weekAverageCasesToday / weekAverageCasesYesterday;
       }
 
       newCases.push(newCasesForTheDay);
@@ -249,4 +255,5 @@ CasesStore.DEFAULTS = {
   factorInterval: 0.1,
   currentFactors: [],
   loading: true,
+  averageDaysForRT: 7,
 };
