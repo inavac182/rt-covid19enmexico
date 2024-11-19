@@ -30,7 +30,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@types/google-map-react": "^1.1.7",
     "@types/node": "^13.13.5",
-    "firebase": "^7.11.0",
+    "firebase": "^10.9.0",
     "google-map-react": "^1.1.7",
     "install": "^0.13.0",
     "mobx": "^5.15.4",
